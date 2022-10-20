@@ -49,5 +49,10 @@ public class DisplayLabel extends JLabel {
     }
 
 
+    public int getContent() {
+        return Integer.parseInt(this.getText());
+    }
+
+
 
 }

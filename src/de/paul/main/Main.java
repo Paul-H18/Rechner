@@ -3,6 +3,7 @@ package de.paul.main;
 import de.paul.frame.Frame;
 import de.paul.frame.controls.DisplayLabel;
 import de.paul.frame.controls.NumberButton;
+import de.paul.math.Operation;
 import de.paul.variables.Var;
 
 import javax.swing.*;
@@ -60,6 +61,10 @@ public class Main {
     public static void buildButtons() {
 
         Var.numberButtonList = new ArrayList<NumberButton>();
+
+
+        //Operation is defined
+        Var.op = new Operation();
 
         for (int i = 0; i <= 9; i++) {
 
@@ -141,6 +146,17 @@ public class Main {
         Var.equals.setBackground(Var.buttonBg);
         Var.equals.setForeground(Var.txt);
 
+        Var.equals.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Var.op.setB(Var.mainLabel.getContent());
+
+                Var.mainLabel.setText(Integer.toString(Var.op.getResult()));
+
+                System.out.println(Var.op.getA() + " " + Var.op.getOperation() + " " + Var.op.getB() + " = " + Var.op.getResult());
+            }
+        });
+
 
         Var.plus = new JButton("+");
         Var.plus.setBounds (360, 460, 100, 100);
@@ -154,6 +170,10 @@ public class Main {
         Var.plus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Var.op.setOperation(Operation.op.PLUS);
+                Var.op.setA(Integer.parseInt(Var.mainLabel.getText()));
+
+
                 Var.mainLabel.reset();
             }
         });
@@ -173,6 +193,10 @@ public class Main {
         Var.minus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Var.op.setOperation(Operation.op.MINUS);
+                Var.op.setA(Integer.parseInt(Var.mainLabel.getText()));
+
+
                 Var.mainLabel.reset();
             }
         });

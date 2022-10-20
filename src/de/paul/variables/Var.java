@@ -4,6 +4,7 @@ import de.paul.frame.Frame;
 import de.paul.frame.controls.DisplayLabel;
 import de.paul.frame.controls.KeyControl;
 import de.paul.frame.controls.NumberButton;
+import de.paul.math.Operation;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,7 +37,8 @@ public class Var {
     public static Font numberButtonFont, mainLabelFont;
 
 
-
+    //Operation Handler
+    public static Operation op;
 
     //Colours
     public static Color buttonBorder = Color.LIGHT_GRAY, buttonBg = Color.GRAY ,frameBg = Color.DARK_GRAY, txt = Color.WHITE;

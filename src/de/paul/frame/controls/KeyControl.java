@@ -35,6 +35,16 @@ public class KeyControl implements KeyListener {
             }
         } else if(e.getKeyChar() == 'c' || e.getKeyChar() == 'C') {
             Var.mainLabel.reset();
+            System.out.println("Cleared through Keyboard input!");
+
+        } else if(e.getKeyChar() == KeyEvent.VK_ENTER) {
+
+            Var.op.setB(Var.mainLabel.getContent());
+
+            Var.mainLabel.setText(Integer.toString(Var.op.getResult()));
+
+            System.out.println("Pressed Key ENTER");
+            System.out.println(Var.op.getA() + " " + Var.op.getOperation() + " " + Var.op.getB() + " = " + Var.op.getResult());
         }
     }
 
