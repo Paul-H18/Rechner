@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class DisplayLabel extends JLabel {
 
-    private int maxContent = 13;
+    private int maxContent = 10;
 
 
     public int getCountOfContent() {

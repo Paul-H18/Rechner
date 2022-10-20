@@ -46,7 +46,8 @@ public class Main {
         System.out.println("Buttons successfully built!");
 
 
-
+        //removes invisible Button Bug
+        Var.mainFrame.repaint();
         System.out.println("Main Window successfully built!");
 
 
