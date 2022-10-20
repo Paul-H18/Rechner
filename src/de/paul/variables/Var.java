@@ -28,6 +28,8 @@ public class Var {
 
     public static JButton equals, deleteCurrentNumbers;
 
+    public static JButton plus, minus;
+
 
     public static DisplayLabel mainLabel;
 

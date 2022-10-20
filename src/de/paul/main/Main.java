@@ -10,7 +10,6 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -142,6 +141,46 @@ public class Main {
         Var.equals.setForeground(Var.txt);
 
 
+        Var.plus = new JButton("+");
+        Var.plus.setBounds (360, 460, 100, 100);
+        Var.plus.setFocusPainted(false);
+        Var.plus.setBorder(new LineBorder(Var.buttonBorder));
+        Var.plus.setFont(Var.numberButtonFont);
+        Var.plus.setFocusable(false);
+        Var.plus.setBackground(Var.buttonBg);
+        Var.plus.setForeground(Var.txt);
+
+        Var.plus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Var.mainLabel.reset();
+            }
+        });
+
+
+
+
+        Var.minus = new JButton("-");
+        Var.minus.setBounds (360, 345, 100, 100);
+        Var.minus.setFocusPainted(false);
+        Var.minus.setBorder(new LineBorder(Var.buttonBorder));
+        Var.minus.setFont(Var.numberButtonFont);
+        Var.minus.setFocusable(false);
+        Var.minus.setBackground(Var.buttonBg);
+        Var.minus.setForeground(Var.txt);
+
+        Var.minus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Var.mainLabel.reset();
+            }
+        });
+
+
+
+
+        Var.mainFrame.add(Var.minus);
+        Var.mainFrame.add(Var.plus);
         Var.mainFrame.add(Var.equals);
         Var.mainFrame.add(Var.deleteCurrentNumbers);
     }
@@ -166,8 +205,6 @@ public class Main {
     }
 
 
-    public static void setUpKeyListeners() {
 
-    }
 
 }
