@@ -151,7 +151,7 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 Var.op.setB(Var.mainLabel.getContent());
 
-                Var.mainLabel.setText(Integer.toString(Var.op.getResult()));
+                Var.mainLabel.setText(Double.toString(Var.op.getResult()));
 
                 System.out.println(Var.op.getA() + " " + Var.op.getOperation() + " " + Var.op.getB() + " = " + Var.op.getResult());
             }
@@ -171,7 +171,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Var.op.setOperation(Operation.op.PLUS);
-                Var.op.setA(Integer.parseInt(Var.mainLabel.getText()));
+                Var.op.setA(Double.parseDouble(Var.mainLabel.getText()));
 
 
                 Var.mainLabel.reset();
@@ -194,7 +194,28 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Var.op.setOperation(Operation.op.MINUS);
-                Var.op.setA(Integer.parseInt(Var.mainLabel.getText()));
+                Var.op.setA(Double.parseDouble(Var.mainLabel.getText()));
+
+
+                Var.mainLabel.reset();
+            }
+        });
+
+        //multiplication
+        Var.mult = new JButton("*");
+        Var.mult.setBounds (360, 230, 100, 100);
+        Var.mult.setFocusPainted(false);
+        Var.mult.setBorder(new LineBorder(Var.buttonBorder));
+        Var.mult.setFont(Var.numberButtonFont);
+        Var.mult.setFocusable(false);
+        Var.mult.setBackground(Var.buttonBg);
+        Var.mult.setForeground(Var.txt);
+
+        Var.mult.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Var.op.setOperation(Operation.op.MULTIPLICATION);
+                Var.op.setA(Double.parseDouble(Var.mainLabel.getText()));
 
 
                 Var.mainLabel.reset();
@@ -202,11 +223,64 @@ public class Main {
         });
 
 
+        //division
+        Var.div = new JButton("/");
+        Var.div.setBounds (360, 115, 100, 100);
+        Var.div.setFocusPainted(false);
+        Var.div.setBorder(new LineBorder(Var.buttonBorder));
+        Var.div.setFont(Var.numberButtonFont);
+        Var.div.setFocusable(false);
+        Var.div.setBackground(Var.buttonBg);
+        Var.div.setForeground(Var.txt);
+
+        Var.div.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Var.op.setOperation(Operation.op.DIVISION);
+                Var.op.setA(Double.parseDouble(Var.mainLabel.getText()));
+
+
+                Var.mainLabel.reset();
+            }
+        });
+
+        Var.comma = new JButton(".");
+        Var.comma.setBounds (360, 5, 100, 95);
+        Var.comma.setFocusPainted(false);
+        Var.comma.setBorder(new LineBorder(Var.buttonBorder));
+        Var.comma.setFont(Var.numberButtonFont);
+        Var.comma.setFocusable(false);
+        Var.comma.setBackground(Var.buttonBg);
+        Var.comma.setForeground(Var.txt);
+
+        Var.comma.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Pressed Button ./,");
+
+                if (!Var.mainLabel.isFull()) {
+                    if (Objects.equals(Var.mainLabel.getText(), "0")) {
+                        Var.mainLabel.setText("0.");
+                    } else {
+                        Var.mainLabel.addText(".");
+                    }
+                } else {
+                    System.out.println("Comma not added, because Label is full!");
+                }
+
+                Var.mainLabel.reset();
+            }
+        });
+
 
 
         Var.mainFrame.add(Var.minus);
         Var.mainFrame.add(Var.plus);
+        Var.mainFrame.add(Var.mult);
+        Var.mainFrame.add(Var.div);
         Var.mainFrame.add(Var.equals);
+        Var.mainFrame.add(Var.comma);
+
         Var.mainFrame.add(Var.deleteCurrentNumbers);
     }
 

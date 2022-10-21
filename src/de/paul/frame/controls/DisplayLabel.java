@@ -49,10 +49,25 @@ public class DisplayLabel extends JLabel {
     }
 
 
-    public int getContent() {
-        return Integer.parseInt(this.getText());
+    public double getContent() {
+        return Double.parseDouble(this.getText());
     }
 
+    public boolean hasComma() {
+        String s = this.getText();
+
+        boolean result = false;
+
+        char[] c = s.toCharArray();
+
+        for(int i = 0; i < c.length; i++) {
+            if(c[i] == '.') {
+                result = true;
+            }
+        }
+
+        return result;
+    }
 
 
 }

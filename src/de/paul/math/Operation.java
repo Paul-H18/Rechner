@@ -7,16 +7,16 @@ public class Operation {
     }
 
 
-    private int a, b;
+    private double a, b;
 
     public enum op {
-        PLUS, MINUS, MULTIPLICATION, DIVISION;
+        PLUS, MINUS, MULTIPLICATION, DIVISION, FACULTY;
     }
 
     op operation;
 
-    public int getResult() {
-        int result;
+    public double getResult() {
+        double result;
         switch(this.operation) {
             case PLUS:
                 result = this.a + this.b;
@@ -45,22 +45,22 @@ public class Operation {
         System.out.println("Operation set: " + this.operation);
     }
 
-    public void setA(int a) {
+    public void setA(double a) {
         this.a = a;
     }
 
 
-    public void setB(int b) {
+    public void setB(double b) {
         this.b = b;
     }
 
 
-    public int getA() {
+    public double getA() {
         return this.a;
     }
 
 
-    public int getB() {
+    public double getB() {
         return this.b;
     }
 

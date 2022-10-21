@@ -14,12 +14,12 @@ public class KeyControl implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        if(e.getKeyChar() == '0' || e.getKeyChar() == '1' || e.getKeyChar() == '2' || e.getKeyChar() == '3' || e.getKeyChar() == '4' || e.getKeyChar() == '5' || e.getKeyChar() == '6' || e.getKeyChar() == '7' || e.getKeyChar() == '8' || e.getKeyChar() == '9') {
+        if (e.getKeyChar() == '0' || e.getKeyChar() == '1' || e.getKeyChar() == '2' || e.getKeyChar() == '3' || e.getKeyChar() == '4' || e.getKeyChar() == '5' || e.getKeyChar() == '6' || e.getKeyChar() == '7' || e.getKeyChar() == '8' || e.getKeyChar() == '9' ) {
 
-            if(!Var.mainLabel.isFull()) {
+            if (!Var.mainLabel.isFull()) {
 
-                if(Objects.equals(Var.mainLabel.getText(), "0")) {
-                    if(e.getKeyChar() == '0') {
+                if (Objects.equals(Var.mainLabel.getText(), "0")) {
+                    if (e.getKeyChar() == '0') {
 
                     } else {
                         String s = "" + e.getKeyChar();
@@ -33,18 +33,33 @@ public class KeyControl implements KeyListener {
             } else {
                 System.out.println(e.getKeyChar() + " was not added due to full Label!");
             }
-        } else if(e.getKeyChar() == 'c' || e.getKeyChar() == 'C') {
-            Var.mainLabel.reset();
-            System.out.println("Cleared through Keyboard input!");
+        } else if ((e.getKeyChar() == ',' || e.getKeyChar() == '.') && !Var.mainLabel.hasComma()) {
+            if (!Var.mainLabel.isFull()) {
+                if (Objects.equals(Var.mainLabel.getText(), "0")) {
+                    if (e.getKeyChar() == '0') {
+                    } else {
+                        String s = "0.";
+                        Var.mainLabel.setText(s);
+                        System.out.println("Added . as Keyboard input!");
+                    }
+                } else {
+                    Var.mainLabel.addTextChar('.');
+                    System.out.println("Added . as Keyboard input!");
+                }
 
-        } else if(e.getKeyChar() == KeyEvent.VK_ENTER) {
+            } else if (e.getKeyChar() == 'c' || e.getKeyChar() == 'C') {
+                Var.mainLabel.reset();
+                System.out.println("Cleared through Keyboard input!");
 
-            Var.op.setB(Var.mainLabel.getContent());
+            } else if (e.getKeyChar() == KeyEvent.VK_ENTER) {
 
-            Var.mainLabel.setText(Integer.toString(Var.op.getResult()));
+                Var.op.setB(Var.mainLabel.getContent());
 
-            System.out.println("Pressed Key ENTER");
-            System.out.println(Var.op.getA() + " " + Var.op.getOperation() + " " + Var.op.getB() + " = " + Var.op.getResult());
+                Var.mainLabel.setText(Double.toString(Var.op.getResult()));
+
+                System.out.println("Pressed Key ENTER");
+                System.out.println(Var.op.getA() + " " + Var.op.getOperation() + " " + Var.op.getB() + " = " + Var.op.getResult());
+            }
         }
     }
 

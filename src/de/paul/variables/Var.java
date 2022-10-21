@@ -29,7 +29,9 @@ public class Var {
 
     public static JButton equals, deleteCurrentNumbers;
 
-    public static JButton plus, minus;
+    public static JButton comma;
+
+    public static JButton plus, minus, mult, div, fac;
 
 
     public static DisplayLabel mainLabel;
